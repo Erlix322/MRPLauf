@@ -20,18 +20,17 @@ public class Schritt {
 	int Dauer;
 	@ManyToMany(fetch=FetchType.EAGER)
 	List<Schritt> list;
-	@ManyToOne
-	Arbeitsplan arbeitsplan;
+
 	@ManyToOne
 	Ressource ressource;
 	
 	public Schritt() {}
-	public Schritt(int ID, String Name,int Dauer,List<Schritt> list,Arbeitsplan arbeitsplan, Ressource ressource) {
+	public Schritt(int ID, String Name,int Dauer,List<Schritt> list, Ressource ressource) {
 		this.ID = ID;
 		this.Name = Name;
 		this.Dauer = Dauer;
 		this.list = list;
-		this.arbeitsplan = arbeitsplan;
+
 		this.ressource = ressource;
 		
 	}
@@ -61,12 +60,7 @@ public class Schritt {
 	public void setList(List<Schritt> list) {
 		this.list = list;
 	}
-	public Arbeitsplan getArbeitsplan() {
-		return arbeitsplan;
-	}
-	public void setArbeitsplan(Arbeitsplan arbeitsplan) {
-		this.arbeitsplan = arbeitsplan;
-	}
+	
 	public Ressource getRessource() {
 		return ressource;
 	}

@@ -57,35 +57,35 @@ public class Initializer {
 	
 	
 	private void initSchritt() {
-		Schritt.save(new Schritt(1,"Platte sägen",2,null,arbeitsplan.findOne(1),ressourcen.findOne(1)));
+		Schritt.save(new Schritt(1,"Platte sägen",2,null,ressourcen.findOne(1)));
 		List<Schritt> l = new ArrayList();
 		l.add(Schritt.findOne(1));
-		Schritt.save(new Schritt(2,"Platte2 sägen",2,l,arbeitsplan.findOne(1),ressourcen.findOne(1)));
+		Schritt.save(new Schritt(2,"Platte2 sägen",2,l,ressourcen.findOne(1)));
 		l = new ArrayList();
 		l.add(Schritt.findOne(1));
-		Schritt.save(new Schritt(3,"Löcher bohren",5,l,arbeitsplan.findOne(1),ressourcen.findOne(2)));
+		Schritt.save(new Schritt(3,"Löcher bohren",5,l,ressourcen.findOne(2)));
 		
 		l = new ArrayList();
 		l.add(Schritt.findOne(2));
 		l.add(Schritt.findOne(3));
-		Schritt.save(new Schritt(4,"Tisch montieren",5,l,arbeitsplan.findOne(1),ressourcen.findOne(3)));
+		Schritt.save(new Schritt(4,"Tisch montieren",5,l,ressourcen.findOne(3)));
 		
 		
 		//2. Arbeitsplan
-		Schritt.save(new Schritt(1002,"Beine sägen",3,null,arbeitsplan.findOne(2),ressourcen.findOne(1)));
-		Schritt.save(new Schritt(1003,"Lattenrost sägen",10,null,arbeitsplan.findOne(2),ressourcen.findOne(1)));
-		Schritt.save(new Schritt(1004,"Korpus sägen",5,null,arbeitsplan.findOne(2),ressourcen.findOne(1)));
+		Schritt.save(new Schritt(1002,"Beine sägen",3,null,ressourcen.findOne(1)));
+		Schritt.save(new Schritt(1003,"Lattenrost sägen",10,null,ressourcen.findOne(1)));
+		Schritt.save(new Schritt(1004,"Korpus sägen",5,null,ressourcen.findOne(1)));
 		
 		l = new ArrayList();
 		l.add(Schritt.findOne(1003));
 		l.add(Schritt.findOne(1004));
 		
-		Schritt.save(new Schritt(1005,"Korpus montieren",5,l,arbeitsplan.findOne(2),ressourcen.findOne(3)));
+		Schritt.save(new Schritt(1005,"Korpus montieren",5,l,ressourcen.findOne(3)));
 		
 		l = new ArrayList();
 		l.add(Schritt.findOne(1005));
 		l.add(Schritt.findOne(1002));
-		Schritt.save(new Schritt(1006,"Bett montieren",7,l,arbeitsplan.findOne(2),ressourcen.findOne(3)));
+		Schritt.save(new Schritt(1006,"Bett montieren",7,l,ressourcen.findOne(3)));
 		
 		
 		
