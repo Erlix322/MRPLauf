@@ -1,5 +1,7 @@
 package org.brandt.mrplauf.entities;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
 import javax.persistence.Id;
@@ -13,6 +15,7 @@ public class Produktionsauftrag {
 	int ID;
 	String Name;
 	int Menge;
+	Date Start;
 	
 	@ManyToOne	
 	Arbeitsplan ap;

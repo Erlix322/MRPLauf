@@ -1,6 +1,7 @@
 package org.brandt.mrplauf;
 
 
+import org.brandt.mrplauf.GifflerThompson.GifflerAlg;
 import org.brandt.mrplauf.entities.Produkt;
 import org.brandt.mrplauf.entities.Produktionsauftrag;
 import org.brandt.mrplauf.entities.Schritt;
@@ -27,7 +28,7 @@ public class MrplaufApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner demo(Initializer initializer,ProduktRepository repository,ProduktionsAuftragRepository auftraege) {
+	public CommandLineRunner demo(GifflerAlg giffler, Initializer initializer,ProduktRepository repository,ProduktionsAuftragRepository auftraege) {
 		return (args) -> {
 			//Initialisiere Datenbank
 			initializer.initialize();	
@@ -47,8 +48,8 @@ public class MrplaufApplication {
 				}
 			}
 			
-			
-						
+			giffler.initDictionary();
+		    giffler.initTime();
 			log.info("");
 
 			// fetch an individual customer by ID

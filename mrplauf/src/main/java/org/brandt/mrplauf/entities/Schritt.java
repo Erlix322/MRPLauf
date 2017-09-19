@@ -1,5 +1,6 @@
 package org.brandt.mrplauf.entities;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.ElementCollection;
@@ -18,6 +19,21 @@ public class Schritt {
 	int ID;
 	String Name;
 	int Dauer;
+	LocalDate start;
+	LocalDate ende;
+	public LocalDate getStart() {
+		return start;
+	}
+	
+	public void setStart(LocalDate start) {
+		this.start = start;
+	}
+	public LocalDate getEnde() {
+		return ende;
+	}
+	public void setEnde(LocalDate ende) {
+		this.ende = ende;
+	}
 	@ManyToMany(fetch=FetchType.EAGER)
 	List<Schritt> list;
 
