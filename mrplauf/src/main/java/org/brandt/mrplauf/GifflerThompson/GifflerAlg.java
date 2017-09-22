@@ -1,11 +1,18 @@
 package org.brandt.mrplauf.GifflerThompson;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import org.brandt.mrplauf.MrplaufApplication;
 import org.brandt.mrplauf.entities.Arbeitsplan;
@@ -33,6 +40,9 @@ public class GifflerAlg {
 	@Autowired
 	ProduktionsAuftragRepository auftraege;
 	
+
+
+	
 	@Autowired 
 	RessourceRepository ressourcen;
 	
@@ -54,6 +64,7 @@ public class GifflerAlg {
 	
 	public void initTime() {
 		auftrag = (List<Produktionsauftrag>) auftraege.findAll();
+		
 		List<Schritt> schrittListe = auftrag.stream()
 		.map( x -> {return x.getAp().getSchritte();})
 		.flatMap(List::stream).collect(Collectors.toList());		
@@ -165,9 +176,9 @@ public class GifflerAlg {
 	public void deleteFromAuftrage(List<Schritt> S) {
 		for(Produktionsauftrag auf : auftrag) {
 			Arbeitsplan ap = auf.getAp();
-			ap.getSchritte().remove(0);
-		}
-		
+			Schritt s = ap.getSchritte().get(0);
+			ap.getSchritte().remove(s);
+		}		
 		auftrag.removeIf(x -> x.getAp().getSchritte().isEmpty());
 	}
 	

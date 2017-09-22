@@ -1,5 +1,6 @@
 package org.brandt.mrplauf.entities;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -7,11 +8,13 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -23,8 +26,8 @@ public class Arbeitsplan {
 	int ID;
 	String Name;
 	
-	@ManyToMany(fetch=FetchType.EAGER)
-	//@Fetch(FetchMode.SELECT)
+	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.DETACH)
+	@OrderBy("ID")
 	Set<Schritt> schritte;
 	
 	public Arbeitsplan() {}
@@ -36,12 +39,13 @@ public class Arbeitsplan {
 	}
 
 	public List<Schritt> getSchritte() {
-		List<Schritt> ret = schritte.stream().collect(Collectors.toList());
-		ret.sort(Comparator.comparing(Schritt::getID));
-		return ret;
+	    List<Schritt> list = new ArrayList<Schritt>();
+	    list.addAll(schritte);
+	    return list;    
+		
 	}
 
-	public void setSchritte(List<Schritt> schritte) {
+	public void setSchritte(List<Schritt> schritte) {		
 		this.schritte = schritte.stream().collect(Collectors.toSet());
 	}
 
