@@ -35,7 +35,7 @@ public class Schritt {
 		this.ende = ende;
 	}
 	@ManyToMany(fetch=FetchType.EAGER)
-	List<Schritt> list;
+	List<Schritt> parents;
 
 	@ManyToOne
 	Ressource ressource;
@@ -45,7 +45,7 @@ public class Schritt {
 		this.ID = ID;
 		this.Name = Name;
 		this.Dauer = Dauer;
-		this.list = list;
+		this.parents = list;
 
 		this.ressource = ressource;
 		
@@ -70,11 +70,11 @@ public class Schritt {
 	public void setDauer(int dauer) {
 		Dauer = dauer;
 	}
-	public List<Schritt> getList() {
-		return list;
+	public List<Schritt> getParents() {
+		return parents;
 	}
 	public void setList(List<Schritt> list) {
-		this.list = list;
+		this.parents = list;
 	}
 	
 	public Ressource getRessource() {
