@@ -40,11 +40,9 @@ public class MrplaufApplication {
 			for (Produktionsauftrag customer : auftraege.findAll()) {
 				log.info("Auftrag: "+customer.getName() + "Arbeitsplan:"+customer.getAp().getName());
 				for(Schritt s : customer.getAp().getSchritte()) {
-
-					log.info("   "+s.getParents().toString());
-					for(Schritt s2 : s.getParents()) {
-				    log.info("     "+s2.getName());
-					}
+                    log.info("["+s.getID()+"]"+"Schritt: " + s.getName());
+					s.getParents().forEach(x -> log.info("    "+x.getName()));
+					
 				}
 			}
 			

@@ -69,7 +69,7 @@ public class GifflerAlg {
 		
 		
 		while(auftrag.size() != 0) {
-			
+		auftrag.get(0).getAp().getSchritte().forEach(x->log.info("Schritt " + x.getName()));	
 			List<Schritt> S = getFirstJobs();
 			
 			
@@ -91,6 +91,7 @@ public class GifflerAlg {
 			}
 			
 			List<Schritt> prevJobs = getFirstJobs();
+			prevJobs.forEach(x -> log.info("First Jobs: "+ x.getName()));
 			deleteFromAuftrage(prevJobs);
 			
 			
@@ -104,7 +105,7 @@ public class GifflerAlg {
 				.map(x -> {return x.getAp().getSchritte().get(0);})
 				.collect(Collectors.toList());
 		
-		schrittListe.forEach(x -> log.info(x.getName()));
+		
 		return schrittListe;
 	}
 	

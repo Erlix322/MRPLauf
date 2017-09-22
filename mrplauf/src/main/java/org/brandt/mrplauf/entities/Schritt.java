@@ -2,6 +2,8 @@ package org.brandt.mrplauf.entities;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -11,6 +13,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 public class Schritt {
@@ -35,9 +40,11 @@ public class Schritt {
 		this.ende = ende;
 	}
 	@ManyToMany(fetch=FetchType.EAGER)
-	List<Schritt> parents;
+	//@Fetch(FetchMode.SELECT)
+	Set<Schritt> parents;
 
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
+	//@Fetch(FetchMode.SELECT)
 	Ressource ressource;
 	
 	public Schritt() {}
@@ -45,7 +52,7 @@ public class Schritt {
 		this.ID = ID;
 		this.Name = Name;
 		this.Dauer = Dauer;
-		this.parents = list;
+		this.setList(list);
 
 		this.ressource = ressource;
 		
@@ -71,10 +78,12 @@ public class Schritt {
 		Dauer = dauer;
 	}
 	public List<Schritt> getParents() {
-		return parents;
+		return parents.stream().collect(Collectors.toList());
 	}
 	public void setList(List<Schritt> list) {
-		this.parents = list;
+		if(list != null)
+		this.parents = list.stream().collect(Collectors.toSet());
+		else this.parents = null;
 	}
 	
 	public Ressource getRessource() {
