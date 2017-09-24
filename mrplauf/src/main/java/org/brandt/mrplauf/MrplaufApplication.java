@@ -30,7 +30,7 @@ public class MrplaufApplication {
 	@Bean
 	public CommandLineRunner demo(GifflerAlg giffler, Initializer initializer,ProduktRepository repository,ProduktionsAuftragRepository auftraege) {
 		return (args) -> {
-			//Initialisiere Datenbank
+			//Initialisiere h2 Datenbank
 			initializer.initialize();	
 		    
 
