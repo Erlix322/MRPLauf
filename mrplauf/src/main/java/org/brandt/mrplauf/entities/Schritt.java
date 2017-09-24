@@ -21,7 +21,7 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 @Entity
-public class Schritt {
+public class Schritt implements Cloneable{
 
 	@Id
 	int ID;
@@ -42,19 +42,19 @@ public class Schritt {
 	public void setEnde(LocalDate ende) {
 		this.ende = ende;
 	}
-	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.DETACH)
-	@OrderBy("ID")
-	Set<Schritt> parents;
+
+	
+	String parents;
 
 	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.DETACH)
 	Ressource ressource;
 	
 	public Schritt() {}
-	public Schritt(int ID, String Name,int Dauer,List<Schritt> list, Ressource ressource) {
+	public Schritt(int ID, String Name,int Dauer,String list, Ressource ressource) {
 		this.ID = ID;
 		this.Name = Name;
 		this.Dauer = Dauer; 
-		this.setList(list);
+		this.setParents(list);
 
 		this.ressource = ressource;
 		
@@ -79,22 +79,27 @@ public class Schritt {
 	public void setDauer(int dauer) {
 		Dauer = dauer;
 	}
-	public List<Schritt> getParents() {
-		return parents.stream().collect(Collectors.toList());
-	}
-	public void setList(List<Schritt> list) {
-		if(list != null) {			
-			this.parents = list.stream().collect(Collectors.toSet());			
-		}	
-		else this.parents = null;
 	
+		
+	public String getParents() {
+		return parents;
 	}
-	
+
+	public void setParents(String parents) {
+		this.parents = parents;
+	}
+
 	public Ressource getRessource() {
 		return ressource;
 	}
 	public void setRessource(Ressource ressource) {
 		this.ressource = ressource;
+	}
+
+	@Override
+	public Schritt clone()  {
+		// TODO Auto-generated method stub
+		return new Schritt(this.getID(),this.getName(),this.getDauer(),this.getParents(),this.getRessource().clone());
 	}
 	
 	

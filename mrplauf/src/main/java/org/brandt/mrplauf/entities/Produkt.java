@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Produkt {
+public class Produkt implements Cloneable {
 
 	@Id
 	int ID;
@@ -31,6 +31,11 @@ public class Produkt {
 
 	public void setName(String name) {
 		Name = name;
+	}
+	@Override
+	public Produkt clone()  {
+		// TODO Auto-generated method stub
+		return new Produkt(this.getID(), this.getName());
 	}
 	
 	

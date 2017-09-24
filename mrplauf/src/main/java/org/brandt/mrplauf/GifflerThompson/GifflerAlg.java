@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.StringTokenizer;
 import java.util.stream.Collectors;
 
 import javax.persistence.EntityManager;
@@ -36,6 +37,7 @@ public class GifflerAlg {
 	List<Produktionsauftrag> TMP;
 	HashMap<Integer, LocalDate> maschines;
 	List<Schritt> finalSchritt;
+	List<Schritt> listTmp;
 	
 	@Autowired
 	ProduktionsAuftragRepository auftraege;
@@ -49,6 +51,7 @@ public class GifflerAlg {
 	public GifflerAlg() {
 		maschines = new HashMap<Integer, LocalDate>();
 		finalSchritt = new ArrayList();
+		listTmp = new ArrayList();
 	}
 	
 	
@@ -60,14 +63,27 @@ public class GifflerAlg {
 				maschines.put(ress.getID(), LocalDate.now());
 		}
 		
+		for(Produktionsauftrag pa : auftrag) {
+			for(Schritt s : pa.getAp().getSchritte())
+				listTmp.add(s);
+		}
+		
 	}
 	
 	public void initTime() {
 		auftrag = (List<Produktionsauftrag>) auftraege.findAll();
 		
+		List<Produktionsauftrag> auf = new ArrayList();
+		for(Produktionsauftrag pa : auftrag) {
+			auf.add(pa.clone());
+		}
+		
+		auftrag = auf;
+		
 		List<Schritt> schrittListe = auftrag.stream()
 		.map( x -> {return x.getAp().getSchritte();})
-		.flatMap(List::stream).collect(Collectors.toList());		
+		.flatMap(List::stream).collect(Collectors.toList());
+		listTmp = schrittListe;
 		schrittListe.forEach(x -> x.setStart(LocalDate.now()));	
 		
 		
@@ -132,7 +148,7 @@ public class GifflerAlg {
 	public List<Schritt> saveOperation(Schritt step, List<Schritt> S){
 		List<Schritt> tmp = S;
 		
-		if(step.getParents().isEmpty()) {
+		if(step.getParents() == null) {
 			int ressourceID = step.getRessource().getID();
 			step.setStart(maschines.get(ressourceID));
 			step.setEnde(step.getStart().plusDays(step.getDauer()));
@@ -151,13 +167,34 @@ public class GifflerAlg {
 	}
 	
 	
-	public LocalDate MaxParent(List<Schritt> s) {
+	public LocalDate MaxParent(String s) {
 		
 		LocalDate maxDate = LocalDate.MIN;
-		for(Schritt schritt : s) {
-			LocalDate endDate = schritt.getEnde();
-			if(maxDate.isBefore(endDate))
-				maxDate = endDate;
+		
+		StringTokenizer st = new StringTokenizer(s,";");
+	
+		List<Integer> ids = new ArrayList();
+	     while (st.hasMoreTokens()) {
+	    	 String token = st.nextToken();
+	         ids.add(Integer.parseInt(token));	        	 
+	         
+	     }
+	    
+	     
+		for(int paid : ids) {
+			for(Produktionsauftrag pa : auftrag) {
+				List<Schritt> schritte = listTmp;
+				Schritt ret = schritte.stream().filter(x->{ return x.getID() == paid;})
+						  .findAny()
+						  .orElse(null);
+				if(ret != null) {
+					LocalDate endDate = ret.getEnde();
+					if(maxDate.isBefore(endDate))
+						maxDate = endDate;
+				}
+				
+			}
+			
 		}
 		
 		return maxDate;
@@ -177,7 +214,7 @@ public class GifflerAlg {
 		for(Produktionsauftrag auf : auftrag) {
 			Arbeitsplan ap = auf.getAp();
 			Schritt s = ap.getSchritte().get(0);
-			ap.getSchritte().remove(s);
+			ap.getSchritte().remove(0);
 		}		
 		auftrag.removeIf(x -> x.getAp().getSchritte().isEmpty());
 	}
@@ -186,6 +223,7 @@ public class GifflerAlg {
 	public List<Schritt> getList(){
 		return finalSchritt;
 	}
+	
 	
 	
 	

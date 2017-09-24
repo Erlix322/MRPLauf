@@ -1,5 +1,7 @@
 package org.brandt.mrplauf.entities;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -13,6 +15,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 
@@ -20,33 +23,34 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 @Entity
-public class Arbeitsplan {
+public class Arbeitsplan implements Cloneable {
+
+
 
 	@Id
 	int ID;
 	String Name;
 	
-	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.DETACH)
+	@OneToMany(fetch=FetchType.EAGER)
 	@OrderBy("ID")
-	Set<Schritt> schritte;
+	List<Schritt> schritte;
 	
 	public Arbeitsplan() {}
 	
 	public Arbeitsplan(int ID,String Name, List<Schritt> schritte) {
 		this.ID = ID;
 		this.Name = Name;
-		this.schritte = schritte.stream().collect(Collectors.toSet());
+		this.schritte = schritte;
 	}
 
 	public List<Schritt> getSchritte() {
-	    List<Schritt> list = new ArrayList<Schritt>();
-	    list.addAll(schritte);
-	    return list;    
+	   
+	    return schritte;    
 		
 	}
 
 	public void setSchritte(List<Schritt> schritte) {		
-		this.schritte = schritte.stream().collect(Collectors.toSet());
+		this.schritte = schritte;
 	}
 
 	public int getID() {
@@ -65,5 +69,14 @@ public class Arbeitsplan {
 		Name = name;
 	}
 	
+	@Override
+	public Arbeitsplan clone()  {
+		// TODO Auto-generated method stub
+		List<Schritt> l = new ArrayList();
+		for(Schritt s : this.getSchritte()) {
+			l.add(s.clone());
+		}
+		return new Arbeitsplan(this.getID(),this.getName(),l);
+	}
 	
 }

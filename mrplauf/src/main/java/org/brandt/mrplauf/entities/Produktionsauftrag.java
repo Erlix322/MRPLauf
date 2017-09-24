@@ -9,7 +9,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Produktionsauftrag {
+public class Produktionsauftrag implements Cloneable {
 	
 	@Id
 	int ID;
@@ -59,5 +59,11 @@ public class Produktionsauftrag {
 	public void setAp(Arbeitsplan ap) {
 		this.ap = ap;
 	}
+	@Override
+	public Produktionsauftrag clone()  {
+		// TODO Auto-generated method stub
+		return new Produktionsauftrag(this.getID(),this.getName(),this.getMenge(),this.getAp().clone());
+	}
+	
 	
 }

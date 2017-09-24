@@ -41,13 +41,13 @@ public class MrplaufApplication {
 				log.info("Auftrag: "+customer.getName() + "Arbeitsplan:"+customer.getAp().getName());
 				for(Schritt s : customer.getAp().getSchritte()) {
                     log.info("["+s.getID()+"]"+"Schritt: " + s.getName());
-					s.getParents().forEach(x -> log.info("    "+x.getName()));
+					log.info("    "+s.getParents());
 					
 				}
 			}
 			
 			giffler.planeZeit();
-			giffler.getList().forEach(x -> log.info("ID: " +x.getID() + " Name: " + x.getDauer() + " Start: " + x.getStart() + " Ende: " + x.getEnde()));
+			giffler.getList().forEach(x -> log.info("Ressource:"+x.getRessource().getID()+"ID: " +x.getID() + " Name: " + x.getName() + " Start: " + x.getStart() + " Ende: " + x.getEnde()));
 			log.info("");
 
 			// fetch an individual customer by ID

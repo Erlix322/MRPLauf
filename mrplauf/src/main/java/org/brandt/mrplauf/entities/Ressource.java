@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Ressource {
+public class Ressource implements Cloneable {
 
 	@Id
 	int ID;
@@ -31,4 +31,11 @@ public class Ressource {
 	public void setName(String name) {
 		Name = name;
 	}
+	@Override
+	public Ressource clone()  {
+		// TODO Auto-generated method stub
+		return new Ressource(this.getID(),this.getName());
+	}
+	
+	
 }
