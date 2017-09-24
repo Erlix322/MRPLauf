@@ -1,6 +1,6 @@
 package org.brandt.mrplauf.entities;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
+
 
 import java.util.ArrayList;
 import java.util.Collection;
