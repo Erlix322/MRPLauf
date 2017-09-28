@@ -21,7 +21,7 @@ Start the Application and open a browser under http://localhost:8080
 # Routes
 
 The following routes a available: 
-> http://localhost:8080/giffler
+> http://localhost:8080/giffler  
 Returns an optimized production plan as JSON String
 ATTENTION: The optimization is calculated based on the "shortest processing time". This is a very simple yet not the best priority rule in this algorithm.
 
