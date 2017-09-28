@@ -51,31 +51,45 @@ public class JsonFormatter {
 	  ]
 	*/
 	public String format(List<Schritt> list) throws JSONException {
+		ct = new HashMap();
 		JSONArray ja = new JSONArray();
 	    JSONObject jo;
 		for(Schritt job : list) {	
 			jo = new JSONObject();
 			String ressId = getRessID(job.getRessource().getID());
-			String text = job.paid;
+			String text = "PA: " +job.paid;
 			int duration = job.getDauer();
 			String start_date = job.getStart().format(formatter);
 			String parent = job.getRessource().getID()+"";
 			JsonStep st = new JsonStep(ressId,text,duration,start_date,parent);
 			jo.put("id", ressId);
+			jo.put("text", text);
+			jo.put("duration", duration);
+			jo.put("start_date", start_date);
+			jo.put("parent", parent);
 			ja.put(jo);
 		}		
+		//add machines
+		for(int key : ct.keySet()) {
+			JSONObject jk = new JSONObject();
+			jk.put("id", key);
+			jk.put("text", "Machine: " + key);
+			ja.put(jk);
+		}
 		
 		return  ja.toString();		
 	}
 	
 	private String getRessID(int ressId) {
+		String ret;
 		if(ct.containsKey(ressId)) {
 			ct.put(ressId, ct.get(ressId) + 1);
 		}else {
-			ct.put(ressId, ressId);
+			ct.put(ressId, 0);
+		
 		}
 		
-		return ct.get(ressId).toString();
+		return ressId+"."+ct.get(ressId).toString();
 	}
 	
 	

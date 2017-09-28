@@ -95,6 +95,10 @@ public class GifflerAlg {
 	}
 	
 	public void planeZeit() {		
+		maschines = new HashMap<Integer, LocalDate>();
+		finalSchritt = new ArrayList();
+		listTmp = new ArrayList();
+		jsonStep = new ArrayList();
 		initTime();
 		initDictionary();	
 		

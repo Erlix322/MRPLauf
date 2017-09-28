@@ -58,7 +58,7 @@ public class Initializer {
 	
 	private void initSchritt() {
 		Schritt.save(new Schritt(1,"Platte sägen",2,null,ressourcen.findOne(1)));		
-		Schritt.save(new Schritt(2,"Platte2 sägen",2,"1",ressourcen.findOne(1)));	
+		Schritt.save(new Schritt(2,"Platte2 sägen",2,"1",ressourcen.findOne(2)));	
 		Schritt.save(new Schritt(3,"Löcher bohren",5,"1",ressourcen.findOne(2)));		
 		Schritt.save(new Schritt(4,"Tisch montieren",5,"2;3",ressourcen.findOne(3)));
 		
