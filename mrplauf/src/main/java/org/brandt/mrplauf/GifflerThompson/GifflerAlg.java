@@ -138,8 +138,7 @@ public class GifflerAlg {
 					s.paid = x.getID() +"";
 					return s;					
 				})
-				.collect(Collectors.toList());
-		
+				.collect(Collectors.toList());		
 		
 		return schrittListe;
 	}

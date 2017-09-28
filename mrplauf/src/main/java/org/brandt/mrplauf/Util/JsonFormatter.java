@@ -1,15 +1,30 @@
 package org.brandt.mrplauf.Util;
 
+import java.io.StringWriter;
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.brandt.mrplauf.entities.JsonStep;
 import org.brandt.mrplauf.entities.Produktionsauftrag;
+import org.brandt.mrplauf.entities.Schritt;
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.springframework.stereotype.Service;
 
 
-
+@Service
 public class JsonFormatter {
 
-	public JsonFormatter() {}
+	
+	DateTimeFormatter formatter; 
+	Map<Integer,Integer> ct;
+	public JsonFormatter() {
+		formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		ct = new HashMap();
+	}
 	public  JsonFormatter(List<Produktionsauftrag> paList) {
 		
 	}
@@ -35,15 +50,32 @@ public class JsonFormatter {
 	      }
 	  ]
 	*/
-	public String format(List<Produktionsauftrag> list) {
+	public String format(List<Schritt> list) throws JSONException {
 		JSONArray ja = new JSONArray();
+	    JSONObject jo;
+		for(Schritt job : list) {	
+			jo = new JSONObject();
+			String ressId = getRessID(job.getRessource().getID());
+			String text = job.paid;
+			int duration = job.getDauer();
+			String start_date = job.getStart().format(formatter);
+			String parent = job.getRessource().getID()+"";
+			JsonStep st = new JsonStep(ressId,text,duration,start_date,parent);
+			jo.put("id", ressId);
+			ja.put(jo);
+		}		
 		
-		for(Produktionsauftrag pa : list) {
-			
+		return  ja.toString();		
+	}
+	
+	private String getRessID(int ressId) {
+		if(ct.containsKey(ressId)) {
+			ct.put(ressId, ct.get(ressId) + 1);
+		}else {
+			ct.put(ressId, ressId);
 		}
 		
-		
-		return null;		
+		return ct.get(ressId).toString();
 	}
 	
 	

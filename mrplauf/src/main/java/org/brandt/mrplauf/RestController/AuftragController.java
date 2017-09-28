@@ -4,9 +4,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.brandt.mrplauf.GifflerThompson.GifflerAlg;
+import org.brandt.mrplauf.Util.JsonFormatter;
 import org.brandt.mrplauf.entities.Produktionsauftrag;
 import org.brandt.mrplauf.entities.Schritt;
 import org.brandt.mrplauf.repositories.ProduktionsAuftragRepository;
+import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +23,9 @@ public class AuftragController {
 	@Autowired
 	GifflerAlg giffler;
 	
+	@Autowired
+	JsonFormatter formatter;
+	
 	@RequestMapping("/aufträge/{id}")
 	public Iterable<Produktionsauftrag> getProduktionsauftraege(@PathVariable("id") int id) {
 		
@@ -34,8 +39,8 @@ public class AuftragController {
 	}
 	
 	@RequestMapping("/giffler")
-	public Iterable<Schritt> getGiffler() {		
+	public String getGiffler() throws JSONException {		
 		giffler.planeZeit();
-		return giffler.getList();	
+		return formatter.format(giffler.getList());	
 	}
 }
