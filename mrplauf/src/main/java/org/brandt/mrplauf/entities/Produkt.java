@@ -9,6 +9,8 @@ public class Produkt implements Cloneable {
 	@Id
 	int ID;
 	
+	
+	
 	String Name;
 	
 	public Produkt() {}

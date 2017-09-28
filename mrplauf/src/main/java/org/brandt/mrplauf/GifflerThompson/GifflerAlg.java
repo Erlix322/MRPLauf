@@ -17,6 +17,7 @@ import javax.persistence.PersistenceContext;
 
 import org.brandt.mrplauf.MrplaufApplication;
 import org.brandt.mrplauf.entities.Arbeitsplan;
+import org.brandt.mrplauf.entities.JsonStep;
 import org.brandt.mrplauf.entities.Produktionsauftrag;
 import org.brandt.mrplauf.entities.Ressource;
 import org.brandt.mrplauf.entities.Schritt;
@@ -39,6 +40,8 @@ public class GifflerAlg {
 	List<Schritt> finalSchritt;
 	List<Schritt> listTmp;
 	
+	List<JsonStep> jsonStep;
+	
 	@Autowired
 	ProduktionsAuftragRepository auftraege;
 	
@@ -52,6 +55,7 @@ public class GifflerAlg {
 		maschines = new HashMap<Integer, LocalDate>();
 		finalSchritt = new ArrayList();
 		listTmp = new ArrayList();
+		jsonStep = new ArrayList();
 	}
 	
 	
@@ -96,7 +100,7 @@ public class GifflerAlg {
 		
 		
 		while(auftrag.size() != 0) {
-		auftrag.get(0).getAp().getSchritte().forEach(x->log.info("Schritt " + x.getName()));	
+		    //auftrag.get(0).getAp().getSchritte().forEach(x->log.info("Schritt " + x.getName()));	
 			List<Schritt> S = getFirstJobs();
 			
 			
@@ -118,7 +122,7 @@ public class GifflerAlg {
 			}
 			
 			List<Schritt> prevJobs = getFirstJobs();
-			prevJobs.forEach(x -> log.info("First Jobs: "+ x.getName()));
+			prevJobs.forEach(x -> log.info("First Jobs: "+ x.getName() + "  " + x.paid));
 			deleteFromAuftrage(prevJobs);
 			
 			
@@ -129,7 +133,11 @@ public class GifflerAlg {
 	public List<Schritt> getFirstJobs(){
 		
 		List<Schritt> schrittListe = auftrag.stream()
-				.map(x -> {return x.getAp().getSchritte().get(0);})
+				.map(x -> {
+					Schritt s = x.getAp().getSchritte().get(0);
+					s.paid = x.getID() +"";
+					return s;					
+				})
 				.collect(Collectors.toList());
 		
 		

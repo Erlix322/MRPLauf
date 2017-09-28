@@ -16,6 +16,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -25,6 +26,8 @@ public class Schritt implements Cloneable{
 
 	@Id
 	int ID;
+	
+	public String paid;
 	String Name;
 	int Dauer;
 	LocalDate start;
@@ -55,6 +58,7 @@ public class Schritt implements Cloneable{
 		this.Name = Name;
 		this.Dauer = Dauer; 
 		this.setParents(list);
+		
 
 		this.ressource = ressource;
 		

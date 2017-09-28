@@ -57,22 +57,17 @@ public class Initializer {
 	
 	
 	private void initSchritt() {
-		Schritt.save(new Schritt(1,"Platte sägen",2,null,ressourcen.findOne(1)));
-		
-		Schritt.save(new Schritt(2,"Platte2 sägen",2,"1",ressourcen.findOne(1)));
-	
-		Schritt.save(new Schritt(3,"Löcher bohren",5,"1",ressourcen.findOne(2)));
-		
+		Schritt.save(new Schritt(1,"Platte sägen",2,null,ressourcen.findOne(1)));		
+		Schritt.save(new Schritt(2,"Platte2 sägen",2,"1",ressourcen.findOne(1)));	
+		Schritt.save(new Schritt(3,"Löcher bohren",5,"1",ressourcen.findOne(2)));		
 		Schritt.save(new Schritt(4,"Tisch montieren",5,"2;3",ressourcen.findOne(3)));
 		
 		
 		//2. Arbeitsplan
 		Schritt.save(new Schritt(1002,"Beine sägen",3,null,ressourcen.findOne(1)));
 		Schritt.save(new Schritt(1003,"Lattenrost sägen",10,null,ressourcen.findOne(1)));
-		Schritt.save(new Schritt(1004,"Korpus sägen",5,null,ressourcen.findOne(1)));
-		
-		Schritt.save(new Schritt(1005,"Korpus montieren",5,"1003;1004",ressourcen.findOne(3)));
-		
+		Schritt.save(new Schritt(1004,"Korpus sägen",5,null,ressourcen.findOne(1)));		
+		Schritt.save(new Schritt(1005,"Korpus montieren",5,"1003;1004",ressourcen.findOne(3)));		
 		Schritt.save(new Schritt(1006,"Bett montieren",7,"1005;1002",ressourcen.findOne(3)));
 		
 		
