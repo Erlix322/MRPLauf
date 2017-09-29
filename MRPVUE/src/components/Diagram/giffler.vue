@@ -1,0 +1,175 @@
+  <template>
+  <div >
+  
+<svg style="width: 100%; height: 100%; display: block; min-width: 600px; min-height: 399px;">
+   <g>
+      <g />
+      <g>
+         <g style="visibility: visible; " transform="translate(0.5,0.5)">
+            <rect x="335.89" y="-6.4" width="78.4" height="19.6" fill="gray" stroke="gray" transform="translate(1.96,2.94)" opacity="1" />
+            <rect x="335.89" y="-6.4" width="78.4" height="19.6" fill="green" stroke="#c3d9ff" pointer-events="all" />
+         </g>
+         <g style=" visibility: visible;">
+            <g fill="black" font-family="Arial,Helvetica" text-anchor="middle" font-size="10.78px">
+               <text x="374.59" y="6.33">Start</text>
+            </g>
+         </g>
+         <g style="visibility: visible; " transform="translate(0.5,0.5)">
+            <rect x="179.09" y="32.8" width="392" height="19.6" fill="gray" stroke="gray" transform="translate(1.96,2.94)" opacity="1" />
+            <rect x="179.09" y="32.8" width="392" height="19.6" fill="green" stroke="#c3d9ff" pointer-events="all" />
+         </g>
+         <g style=" visibility: visible;">
+            <g fill="black" font-family="Arial,Helvetica" text-anchor="middle" font-size="10.78px">
+               <text x="374.59" y="45.53">Initialisiere Startzeitgrenzen</text>
+            </g>
+         </g>
+         <g style="visibility: visible; " transform="translate(0.5,0.5)">
+            <rect x="179.09" y="101.4" width="392" height="29.4" fill="gray" stroke="gray" transform="translate(1.96,2.94)" opacity="1" />
+            <rect x="179.09" y="101.4" width="392" height="29.4" fill="green" stroke="#c3d9ff" pointer-events="all" />
+         </g>
+         <g style=" visibility: visible;">
+            <g fill="black" font-family="Arial,Helvetica" text-anchor="middle" font-size="10.78px">
+               <text x="374.59" y="112.66">Filtere Maschinen aus S.</text>
+               <text x="374.59" y="125.4">R :=R\{S}</text>
+            </g>
+         </g>
+         <g style="visibility: visible; " transform="translate(0.5,0.5)">
+            <path d="M 374.6 150.4 L 421.15 184.7 L 374.6 219 L 328.05 184.7 Z" fill="gray" stroke="gray" stroke-miterlimit="10" transform="translate(1.96,2.94)" opacity="1" />
+            <path d="M 374.6 150.4 L 421.15 184.7 L 374.6 219 L 328.05 184.7 Z" fill="green" stroke="#ffcf8a" stroke-miterlimit="10" pointer-events="all" />
+         </g>
+         <g style=" visibility: visible;">
+            <g fill="black" font-family="Arial,Helvetica" text-anchor="middle" font-size="10.78px">
+               <text x="374.1" y="187.63">Menge R leer?</text>
+            </g>
+         </g>
+         <g style="visibility: visible; " transform="translate(0.5,0.5)">
+            <rect x="179.09" y="62.2" width="392" height="19.6" fill="gray" stroke="gray" transform="translate(1.96,2.94)" opacity="1" />
+            <rect x="179.09" y="62.2" width="392" height="19.6" fill="green" stroke="#c3d9ff" pointer-events="all" />
+         </g>
+         <g style=" visibility: visible;">
+            <g fill="black" font-family="Arial,Helvetica" text-anchor="middle" font-size="10.78px">
+               <text x="374.59" y="74.93">Sammle erste Jobs aus den Produktionsaufträgen</text>
+            </g>
+         </g>
+         <g style="visibility: visible;" transform="translate(0.5,0.5)">
+            <path d="M 375 13.2 L 375 18.1 Q 375 23 375 24.78 L 375 26.56" fill="none" stroke="green" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9" />
+            <path d="M 375 13.2 L 375 18.1 Q 375 23 375 24.78 L 375 26.56" fill="none" stroke="#36393d" stroke-miterlimit="10" />
+            <path d="M 375 31.7 L 371.57 24.84 L 375 26.56 L 378.43 24.84 Z" fill="#36393d" stroke="#36393d" stroke-miterlimit="10" pointer-events="all" />
+         </g>
+         <g style="visibility: visible;" transform="translate(0.5,0.5)">
+            <path d="M 375 52.4 L 375 54.85 Q 375 57.3 375 56.63 L 375 55.96" fill="none" stroke="green" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9" />
+            <path d="M 375 52.4 L 375 54.85 Q 375 57.3 375 56.63 L 375 55.96" fill="none" stroke="#36393d" stroke-miterlimit="10" />
+            <path d="M 375 61.1 L 371.57 54.24 L 375 55.96 L 378.43 54.24 Z" fill="#36393d" stroke="#36393d" stroke-miterlimit="10" pointer-events="all" />
+         </g>
+         <g style="visibility: visible;" transform="translate(0.5,0.5)">
+            <path d="M 375 81.8 L 375 86.7 Q 375 91.6 375 93.38 L 375 95.16" fill="none" stroke="green" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9" />
+            <path d="M 375 81.8 L 375 86.7 Q 375 91.6 375 93.38 L 375 95.16" fill="none" stroke="#36393d" stroke-miterlimit="10" />
+            <path d="M 375 100.3 L 371.57 93.44 L 375 95.16 L 378.43 93.44 Z" fill="#36393d" stroke="#36393d" stroke-miterlimit="10" pointer-events="all" />
+         </g>
+         <g style="visibility: visible; " transform="translate(0.5,0.5)">
+            <path d="M 375.09 297.4 L 419.19 326.8 L 375.09 356.2 L 330.99 326.8 Z" fill="gray" stroke="gray" stroke-miterlimit="10" transform="translate(1.96,2.94)" opacity="1" />
+            <path d="M 375.09 297.4 L 419.19 326.8 L 375.09 356.2 L 330.99 326.8 Z" fill="green" stroke="#ffcf8a" stroke-miterlimit="10" pointer-events="all" />
+         </g>
+         <g style=" visibility: visible;">
+            <g fill="black" font-family="Arial,Helvetica" text-anchor="middle" font-size="10.78px">
+               <text x="374.59" y="329.73">Menge S leer?</text>
+            </g>
+         </g>
+         <g style="visibility: visible; " transform="translate(0.5,0.5)">
+            <path d="M 330.99 326.8 L 139.89 326.8 Q 130.09 326.8 130.09 317 L 130.09 81.8 Q 130.09 72 139.89 72 L 172.85 72" fill="none" stroke="green" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9" />
+            <path d="M 330.99 326.8 L 139.89 326.8 Q 130.09 326.8 130.09 317 L 130.09 81.8 Q 130.09 72 139.89 72 L 172.85 72" fill="none" stroke="#36393d" stroke-miterlimit="10" />
+            <path d="M 177.99 72 L 171.13 75.43 L 172.85 72 L 171.13 68.57 Z" fill="#36393d" stroke="#36393d" stroke-miterlimit="10" pointer-events="all" />
+         </g>
+         <g style="">
+            <g fill="black" font-family="Arial,Helvetica" text-anchor="middle" font-size="9.8px">
+               <rect fill="white" stroke="none" x="117" y="269" width="27" height="12" stroke-width="0" />
+               <text x="130.09" y="278.64">Nein</text>
+            </g>
+         </g>
+         <g style="visibility: visible; " transform="translate(0.5,0.5)">
+            <rect x="179.09" y="238.6" width="392" height="19.6" fill="gray" stroke="gray" transform="translate(1.96,2.94)" opacity="1" />
+            <rect x="179.09" y="238.6" width="392" height="19.6" fill="green" stroke="#c3d9ff" pointer-events="all" />
+         </g>
+         <g style=" visibility: visible;">
+            <g fill="black" font-family="Arial,Helvetica" text-anchor="middle" font-size="10.78px">
+               <text x="374.59" y="251.33">Prioritätsregel(Operation)</text>
+            </g>
+         </g>
+         <g style="visibility: visible; " transform="translate(0.5,0.5)">
+            <path d="M 375 218.7 L 375 223.75 Q 375 228.8 375 230.58 L 375 232.36" fill="none" stroke="green" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9" />
+            <path d="M 375 218.7 L 375 223.75 Q 375 228.8 375 230.58 L 375 232.36" fill="none" stroke="#36393d" stroke-miterlimit="10" />
+            <path d="M 375 237.5 L 371.57 230.64 L 375 232.36 L 378.43 230.64 Z" fill="#36393d" stroke="#36393d" stroke-miterlimit="10" pointer-events="all" />
+         </g>
+         <g style="visibility: visible; " transform="translate(0.5,0.5)">
+            <rect x="179.09" y="268" width="392" height="19.6" fill="gray" stroke="gray" transform="translate(1.96,2.94)" opacity="1" />
+            <rect x="179.09" y="268" width="392" height="19.6" fill="green" stroke="#c3d9ff" pointer-events="all" />
+         </g>
+         <g style=" visibility: visible;">
+            <g fill="black" font-family="Arial,Helvetica" text-anchor="middle" font-size="10.78px">
+               <text x="374.59" y="280.73">Operation verplanen</text>
+            </g>
+         </g>
+         <g style="visibility: visible; " transform="translate(0.5,0.5)">
+            <path d="M 375 258.2 L 375 260.65 Q 375 263.1 375 262.43 L 375 261.76" fill="none" stroke="green" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9" />
+            <path d="M 375 258.2 L 375 260.65 Q 375 263.1 375 262.43 L 375 261.76" fill="none" stroke="#36393d" stroke-miterlimit="10" />
+            <path d="M 375 266.9 L 371.57 260.04 L 375 261.76 L 378.43 260.04 Z" fill="#36393d" stroke="#36393d" stroke-miterlimit="10" pointer-events="all" />
+         </g>
+         <g style="visibility: visible;" transform="translate(0.5,0.5)">
+            <path d="M 375 287.6 L 375 290.05 Q 375 292.5 375 291.86 L 375 291.22" fill="none" stroke="green" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9" />
+            <path d="M 375 287.6 L 375 290.05 Q 375 292.5 375 291.86 L 375 291.22" fill="none" stroke="#36393d" stroke-miterlimit="10" />
+            <path d="M 375 296.36 L 371.57 289.5 L 375 291.22 L 378.43 289.5 Z" fill="#36393d" stroke="#36393d" stroke-miterlimit="10" pointer-events="all" />
+         </g>
+         <g style="visibility: visible;" transform="translate(0.5,0.5)">
+            <path d="M 375 130.8 L 375 135.7 Q 375 140.6 375 142.53 L 375 144.46" fill="none" stroke="green" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9" />
+            <path d="M 375 130.8 L 375 135.7 Q 375 140.6 375 142.53 L 375 144.46" fill="none" stroke="#36393d" stroke-miterlimit="10" />
+            <path d="M 375 149.6 L 371.57 142.74 L 375 144.46 L 378.43 142.74 Z" fill="#36393d" stroke="#36393d" stroke-miterlimit="10" pointer-events="all" />
+         </g>
+         <g style="visibility: visible; " transform="translate(0.5,0.5)">
+            <path d="M 421.15 184.7 L 580.89 184.7 Q 590.69 184.7 590.69 194.5 L 590.69 317 Q 590.69 326.8 580.89 326.8 L 425.43 326.8" fill="none" stroke="green" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9" />
+            <path d="M 421.15 184.7 L 580.89 184.7 Q 590.69 184.7 590.69 194.5 L 590.69 317 Q 590.69 326.8 580.89 326.8 L 425.43 326.8" fill="none" stroke="#36393d" stroke-miterlimit="10" />
+            <path d="M 420.28 326.8 L 427.14 323.37 L 425.43 326.8 L 427.14 330.23 Z" fill="#36393d" stroke="#36393d" stroke-miterlimit="10" pointer-events="all" />
+         </g>
+         <g style=" visibility: visible;">
+            <g fill="black" font-family="Arial,Helvetica" text-anchor="middle" font-size="9.8px">
+               <rect fill="white" stroke="none" x="582" y="251" width="17" height="12" stroke-width="0" />
+               <text x="590.69" y="260.1">JA</text>
+            </g>
+         </g>
+         <g style="visibility: visible; " transform="translate(0.5,0.5)">
+            <rect x="335.89" y="375.8" width="78.4" height="19.6" fill="gray" stroke="gray" transform="translate(1.96,2.94)" opacity="1" />
+            <rect x="335.89" y="375.8" width="78.4" height="19.6" fill="green" stroke="#c3d9ff" pointer-events="all" />
+         </g>
+         <g style=" visibility: visible;">
+            <g fill="black" font-family="Arial,Helvetica" text-anchor="middle" font-size="10.78px">
+               <text x="374.59" y="388.53">Stop</text>
+            </g>
+         </g>
+         <g style="visibility: visible;" transform="translate(0.5,0.5)">
+            <path d="M 375 356.14 L 375 361.07 Q 375 366 375 367.78 L 375 369.56" fill="none" stroke="green" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9" />
+            <path d="M 375 356.14 L 375 361.07 Q 375 366 375 367.78 L 375 369.56" fill="none" stroke="#36393d" stroke-miterlimit="10" />
+            <path d="M 375 374.7 L 371.57 367.84 L 375 369.56 L 378.43 367.84 Z" fill="#36393d" stroke="#36393d" stroke-miterlimit="10" pointer-events="all" />
+         </g>
+      </g>
+      <g />
+      <g />
+   </g>  
+</svg>
+
+  </div>
+</template>
+
+<script>
+  /*eslint-disable*/
+  export default {
+    data() {
+      return {}
+    }
+  
+  }
+</script>
+
+<style>
+  
+</style>
+  
+  
