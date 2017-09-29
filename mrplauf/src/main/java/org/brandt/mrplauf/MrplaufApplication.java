@@ -24,13 +24,13 @@ public class MrplaufApplication {
 	private static final Logger log = LoggerFactory.getLogger(MrplaufApplication.class);
 
 	public static void main(String[] args) {
-		SpringApplication.run(MrplaufApplication.class, args);
+		SpringApplication.run(MrplaufApplication.class, args); 
 	}
 	
 	@Bean
 	public CommandLineRunner demo(GifflerAlg giffler, Initializer initializer,ProduktRepository repository,ProduktionsAuftragRepository auftraege) {
 		return (args) -> {
-			//Initialisiere h2 Datenbank
+			//Initialisiere h2 Datenbank 
 			initializer.initialize();	
 		    
 
