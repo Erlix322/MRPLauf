@@ -5,6 +5,15 @@ Follow the steps to set up a development environment or to run the standalone ap
 # Releases  
 ![Download Version 0_0_1](https://drive.google.com/open?id=0BwL4D4dBsZu_c1pDOEtuaFNZclU)
 
+# Quick Start
+Download the latest release candidate.
+Open the command line and type.  
+> cd <download directory of the release canidate>
+> java -jar mrplauf-0.0.1-SNAPSHOT.jar
+
+Caution: make sure that you have installed java runtime environment (jre) 8+  
+
+Open your web browser and navigate to http://localhost:8080
 # 1 Development environment
 
 ## 1.1 Prerequesites
