@@ -10,6 +10,7 @@ import org.brandt.mrplauf.entities.Schritt;
 import org.brandt.mrplauf.repositories.ProduktionsAuftragRepository;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,6 +28,7 @@ public class AuftragController {
 	JsonFormatter formatter;
 	
 	@RequestMapping("/aufträge/{id}")
+	@CrossOrigin
 	public Iterable<Produktionsauftrag> getProduktionsauftraege(@PathVariable("id") int id) {
 		
 		List<Produktionsauftrag> list = (List<Produktionsauftrag>) auftraege.findAll();
@@ -39,6 +41,7 @@ public class AuftragController {
 	}
 	
 	@RequestMapping("/giffler")
+	@CrossOrigin
 	public String getGiffler() throws JSONException {		
 		giffler.planeZeit();
 		return formatter.format(giffler.getList());	

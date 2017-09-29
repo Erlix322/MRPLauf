@@ -52,6 +52,8 @@ public class JsonFormatter {
 	*/
 	public String format(List<Schritt> list) throws JSONException {
 		ct = new HashMap();
+		JSONObject wrapper = new JSONObject();
+	
 		JSONArray ja = new JSONArray();
 	    JSONObject jo;
 		for(Schritt job : list) {	
@@ -77,7 +79,9 @@ public class JsonFormatter {
 			ja.put(jk);
 		}
 		
-		return  ja.toString();		
+		wrapper.put("data", ja);
+		
+		return  wrapper.toString();		
 	}
 	
 	private String getRessID(int ressId) {
