@@ -27,7 +27,7 @@ public class AuftragController {
 	@Autowired
 	JsonFormatter formatter;
 	
-	@RequestMapping("/aufträge/{id}")
+	@RequestMapping("/auftraege/{id}")
 	@CrossOrigin
 	public Iterable<Produktionsauftrag> getProduktionsauftraege(@PathVariable("id") int id) {
 		
