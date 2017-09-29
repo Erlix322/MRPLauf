@@ -2,6 +2,9 @@
 This Repository contains a Spring Boot application with different routes for calculating typical production planning algorithms.
 Follow the steps to set up a development environment or to run the standalone application.
 
+# Releases  
+![Download Version 0_0_1](https://drive.google.com/open?id=0BwL4D4dBsZu_c1pDOEtuaFNZclU)
+
 # 1 Development environment
 
 ## 1.1 Prerequesites
