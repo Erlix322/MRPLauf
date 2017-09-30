@@ -3,7 +3,7 @@ This Repository contains a Spring Boot application with different routes for cal
 Follow the steps to set up a development environment or to run the standalone application.
 
 # Releases  
-[Download Version 0_0_1](https://drive.google.com/open?id=0BwL4D4dBsZu_c1pDOEtuaFNZclU)
+[Download Version 0_0_2](https://drive.google.com/open?id=0BwL4D4dBsZu_cmI2N3g0SlNjSEE)
 
 # Quick Start
 Download the latest release candidate.
