@@ -1,0 +1,7 @@
+org.brandt.mrplauf
+org.brandt.mrplauf.GifflerThompson
+org.brandt.mrplauf.RestController
+org.brandt.mrplauf.Util
+org.brandt.mrplauf.entities
+org.brandt.mrplauf.initializer
+org.brandt.mrplauf.repositories
