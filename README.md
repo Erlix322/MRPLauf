@@ -1,6 +1,9 @@
 # MRP algorithms
 This Repository contains a Spring Boot application with different routes for calculating typical production planning algorithms.
 Follow the steps to set up a development environment or to run the standalone application.
+  
+# Documentation
+https://erlix322.github.io/MRPLauf/
 
 # Releases  
 [Download Version 0_0_2](https://drive.google.com/open?id=0BwL4D4dBsZu_cmI2N3g0SlNjSEE)
