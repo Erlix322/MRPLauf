@@ -16,7 +16,7 @@ public class VorwController {
 	@RequestMapping("/vorw")
 	public String vorw() {
 		
-		
+		algorithm.getVorwListe();
 		return "TODO";
 	}
 }

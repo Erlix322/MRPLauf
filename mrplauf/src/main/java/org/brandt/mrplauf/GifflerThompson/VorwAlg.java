@@ -5,6 +5,7 @@ import static org.hamcrest.CoreMatchers.hasItems;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.StringTokenizer;
 import java.util.stream.Collectors;
 
@@ -26,9 +27,28 @@ public class VorwAlg {
 	@Autowired
 	ProduktionsAuftragRepository auftrage;
 	
-	public List<Schritt> getVorwListe() {
-		List<Schritt> list = new ArrayList<Schritt>();
+	
+	List<Produktionsauftrag> auftrag;
+	List<Schritt> tmpSchritte;
+	
+	public VorwAlg() {
+		log.info("Start");
 		
+				
+	}
+	
+	private void initDate() {
+		tmpSchritte.forEach(x->{
+			x.setStart(LocalDate.now());
+			x.setEnde(LocalDate.now());
+		});
+	}
+	
+	public List<Schritt> getVorwListe() {
+		
+		auftrag = (List<Produktionsauftrag>) auftrage.findAll();
+		List<Schritt> list = new ArrayList<Schritt>();
+		calcFAZ();
 		
 		
 		return list;
@@ -36,21 +56,23 @@ public class VorwAlg {
 	
 	//Berechnung der frühsten Anfangszeitpunkte
 	private void calcFAZ() {
-		List<Schritt> schritte = auftrage.findOne(0).getAp().getSchritte();
-		//HashMap<int,LocalDate>
+		tmpSchritte = 	auftrag.get(0).getAp().getSchritte();
+		initDate();
 		
-		schritte.forEach(x -> {
+		tmpSchritte.forEach(x -> {
 			if(x.getParents() == null)x.setStart(LocalDate.now());
-			else calcParentSumme(x, schritte);		
-		});	
+			else calcMaxParentSumme(x);		
+		});
 		
+		tmpSchritte.forEach(x->log.info(x.getName()+""+x.getEnde()));
 		
 	}
 	
 	//Summe der Vorgaenger
-	private void calcParentSumme(Schritt s, List<Schritt> list) {
+	private void calcMaxParentSumme(Schritt s) {
 		StringTokenizer st = new StringTokenizer(s.getParents(),";");
 		
+		//SID der Parentschritte
 		List<Integer> ids = new ArrayList();
 	     while (st.hasMoreTokens()) {
 	    	 String token = st.nextToken();
@@ -58,13 +80,16 @@ public class VorwAlg {
 	     }	    
 	     
 	    
-	     //Schritte suchen die als Parents im Schritte s stehen.
-	     Schritt step = list.stream().filter(x-> ids.contains(x.getID()))
-	     .max((curr,prev) -> Math.max(curr.getDauer(), prev.getDauer()))
+	     //MaxEnde der Parents suchen
+	     
+	     Schritt step = tmpSchritte.stream().filter(x-> ids.contains(x.getID()))
+	     .max((curr,prev) ->  Math.max(curr.getDauer(), prev.getDauer()))
 	     .get();
 	     
-	     
-	     
+	     tmpSchritte.stream().filter(x->x.getID() == step.getID())
+	    	.findFirst()
+	    	.get()
+	    	.setEnde(step.getEnde().plusDays(s.getDauer()));
 	     
 	         
 	}
