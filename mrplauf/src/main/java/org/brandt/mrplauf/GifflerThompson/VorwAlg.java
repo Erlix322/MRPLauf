@@ -40,7 +40,6 @@ public class VorwAlg {
 	private void initDate() {
 		tmpSchritte.forEach(x->{
 			x.setStart(LocalDate.now());
-			x.setEnde(LocalDate.now());
 		});
 	}
 	
@@ -59,12 +58,18 @@ public class VorwAlg {
 		tmpSchritte = 	auftrag.get(0).getAp().getSchritte();
 		initDate();
 		
-		tmpSchritte.forEach(x -> {
-			if(x.getParents() == null)x.setStart(LocalDate.now());
-			else calcMaxParentSumme(x);		
+		//Berechne FAZ
+		tmpSchritte.forEach(i -> {
+			if(i.getParents() == null)i.setStart(LocalDate.now());
+			else calcMaxParentSumme(i);		
 		});
 		
-		tmpSchritte.forEach(x->log.info(x.getName()+""+x.getEnde()));
+		//Berechne FEZ
+		tmpSchritte.forEach(i->{
+			i.setEnde(i.getStart().plusDays(i.getDauer()));
+		});
+		
+		tmpSchritte.forEach(x->log.info(x.getName()+"FAZ"+x.getStart()+"FEZ"+x.getEnde()+"\n"));
 		
 	}
 	
@@ -86,12 +91,20 @@ public class VorwAlg {
 	     .max((curr,prev) ->  Math.max(curr.getDauer(), prev.getDauer()))
 	     .get();
 	     
+	    /*
 	     tmpSchritte.stream().filter(x->x.getID() == step.getID())
 	    	.findFirst()
 	    	.get()
 	    	.setEnde(step.getEnde().plusDays(s.getDauer()));
+	     */
 	     
-	         
+	     //Set FAZ
+	     tmpSchritte.stream().filter(x->x.getID() == s.getID())
+	    	.findFirst()
+	    	.get()
+	    	.setStart(step.getStart().plusDays(step.getDauer()));
+	     
+	     	     
 	}
 	
 	
