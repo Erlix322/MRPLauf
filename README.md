@@ -2,6 +2,9 @@
 This Repository contains a Spring Boot application with different routes for calculating typical production planning algorithms.
 Follow the steps to set up a development environment or to run the standalone application.
   
+prototype
+https://htwmrp.herokuapp.com/
+
 # Documentation
 https://erlix322.github.io/MRPLauf/
 
