@@ -45,4 +45,15 @@ The following routes a available:
 Returns an optimized production plan as JSON String
 ATTENTION: The optimization is calculated based on the "shortest processing time". This is a very simple yet not the best priority rule in this algorithm.
 
+# Fields of Research
+This project offers a variety of scientific fields to work on. Especially computer scientists and economists could explore different subjects.
+
+The following fields are covered in this project:  
+- Frontend Development with VueJS/HTML/CSS
+- Backend Development with SpringBoot/Java
+- Production planning algorithms (e.g. Giffler-Thomson, Retrograd calculation, progressive calculation)
+- RESTApi Design 
+
+
+
 
